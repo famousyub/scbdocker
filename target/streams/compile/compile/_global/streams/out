@@ -1,0 +1,25 @@
+[0m[[0m[33mwarn[0m] [0m[0m/home/user/Bureau/myscalapr/scala-play-skills-tracker/conf/routes:1:1: Auto-application to `()` is deprecated. Supply the empty argument list `()` explicitly to invoke method getProfiles,[0m
+[0m[[0m[33mwarn[0m] [0m[0mor remove the empty argument list from its definition (Java-defined methods are exempt).[0m
+[0m[[0m[33mwarn[0m] [0m[0mIn Scala 3, an unapplied method like this will be eta-expanded into a function.[0m
+[0m[[0m[33mwarn[0m] [0m[0mGET      /profiles              profile.controllers.ProfileController.getProfiles[0m
+[0m[[0m[33mwarn[0m] [0m[0m/home/user/Bureau/myscalapr/scala-play-skills-tracker/conf/routes:8:1: Auto-application to `()` is deprecated. Supply the empty argument list `()` explicitly to invoke method getSkills,[0m
+[0m[[0m[33mwarn[0m] [0m[0mor remove the empty argument list from its definition (Java-defined methods are exempt).[0m
+[0m[[0m[33mwarn[0m] [0m[0mIn Scala 3, an unapplied method like this will be eta-expanded into a function.[0m
+[0m[[0m[33mwarn[0m] [0m[0mGET      /skills              skill.controllers.SkillController.getSkills[0m
+[0m[[0m[33mwarn[0m] [0m[0m/home/user/Bureau/myscalapr/scala-play-skills-tracker/conf/routes:14:1: Auto-application to `()` is deprecated. Supply the empty argument list `()` explicitly to invoke method getAchievements,[0m
+[0m[[0m[33mwarn[0m] [0m[0mor remove the empty argument list from its definition (Java-defined methods are exempt).[0m
+[0m[[0m[33mwarn[0m] [0m[0mIn Scala 3, an unapplied method like this will be eta-expanded into a function.[0m
+[0m[[0m[33mwarn[0m] [0m[0mGET      /achievements              achievement.controllers.AchievementController.getAchievements[0m
+[0m[[0m[33mwarn[0m] [0m[0m/home/user/Bureau/myscalapr/scala-play-skills-tracker/conf/routes:1:1: Auto-application to `()` is deprecated. Supply the empty argument list `()` explicitly to invoke method getProfiles,[0m
+[0m[[0m[33mwarn[0m] [0m[0mor remove the empty argument list from its definition (Java-defined methods are exempt).[0m
+[0m[[0m[33mwarn[0m] [0m[0mIn Scala 3, an unapplied method like this will be eta-expanded into a function.[0m
+[0m[[0m[33mwarn[0m] [0m[0mGET      /profiles              profile.controllers.ProfileController.getProfiles[0m
+[0m[[0m[33mwarn[0m] [0m[0m/home/user/Bureau/myscalapr/scala-play-skills-tracker/conf/routes:8:1: Auto-application to `()` is deprecated. Supply the empty argument list `()` explicitly to invoke method getSkills,[0m
+[0m[[0m[33mwarn[0m] [0m[0mor remove the empty argument list from its definition (Java-defined methods are exempt).[0m
+[0m[[0m[33mwarn[0m] [0m[0mIn Scala 3, an unapplied method like this will be eta-expanded into a function.[0m
+[0m[[0m[33mwarn[0m] [0m[0mGET      /skills              skill.controllers.SkillController.getSkills[0m
+[0m[[0m[33mwarn[0m] [0m[0m/home/user/Bureau/myscalapr/scala-play-skills-tracker/conf/routes:14:1: Auto-application to `()` is deprecated. Supply the empty argument list `()` explicitly to invoke method getAchievements,[0m
+[0m[[0m[33mwarn[0m] [0m[0mor remove the empty argument list from its definition (Java-defined methods are exempt).[0m
+[0m[[0m[33mwarn[0m] [0m[0mIn Scala 3, an unapplied method like this will be eta-expanded into a function.[0m
+[0m[[0m[33mwarn[0m] [0m[0mGET      /achievements              achievement.controllers.AchievementController.getAchievements[0m
+[0m[[0m[33mwarn[0m] [0m[0m6 warnings found[0m

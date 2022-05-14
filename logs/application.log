@@ -1,0 +1,165 @@
+2022-05-14 15:01:51 [34mINFO [0;39m [36mplay.api.db.DefaultDBApi[0;39m [35m[0;39m Database [default] initialized
+2022-05-14 15:01:51 [34mINFO [0;39m [36mplay.api.db.HikariCPConnectionPool[0;39m [35m[0;39m Creating Pool for datasource 'default'
+2022-05-14 15:01:51 [34mINFO [0;39m [36mplay.api.http.EnabledFilters[0;39m [35m[0;39m Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
+
+    play.filters.headers.SecurityHeadersFilter
+    play.filters.hosts.AllowedHostsFilter
+    play.filters.hosts.AllowedHostsFilter
+
+2022-05-14 15:01:51 [34mINFO [0;39m [36mplay.api.Play[0;39m [35m[0;39m Application started (Dev) (no global state)
+2022-05-14 15:01:51 [31mWARN [0;39m [36mo.f.c.i.database.base.Database[0;39m [35m[0;39m Flyway upgrade recommended: PostgreSQL 14.2 is newer than this version of Flyway and support has not been tested. The latest supported version of PostgreSQL is 12.
+2022-05-14 15:01:51 [1;31mERROR[0;39m [36mo.f.core.internal.command.DbMigrate[0;39m [35m[0;39m Migration of schema "public" to version 2 - InsertDefaultProfiles failed! Changes successfully rolled back.
+2022-05-14 15:01:51 [1;31mERROR[0;39m [36mp.api.http.DefaultHttpErrorHandler[0;39m [35m[0;39m 
+
+! @7njc8b05e - Internal server error, for (GET) [/] ->
+ 
+play.api.http.HttpErrorHandlerExceptions$$anon$1: Execution exception[[FlywayMigrateException: 
+Migration V2__InsertDefaultProfiles.sql failed
+----------------------------------------------
+SQL State  : 42P01
+Error Code : 0
+Message    : ERREUR: la relation « profiles » n'existe pas
+  Position : 13
+Location   : db/migration/default/V2__InsertDefaultProfiles.sql (/home/user/Bureau/myscalapr/scala-play-skills-tracker/target/scala-2.13/classes/db/migration/default/V2__InsertDefaultProfiles.sql)
+Line       : 2
+Statement  : INSERT INTO profiles
+    (profile_id, name, email)
+SELECT uuid_generate_v4(), 'Jon', 'jon@doe.com'
+WHERE
+    NOT EXISTS (
+        SELECT name FROM profiles WHERE name = 'Jon'
+    )
+]]
+	at play.api.http.HttpErrorHandlerExceptions$.throwableToUsefulException(HttpErrorHandler.scala:359)
+	at play.api.http.DefaultHttpErrorHandler.onServerError(HttpErrorHandler.scala:261)
+	at play.core.server.Server$$anonfun$handleErrors$1$1.applyOrElse(Server.scala:109)
+	at play.core.server.Server$$anonfun$handleErrors$1$1.applyOrElse(Server.scala:105)
+	at scala.runtime.AbstractPartialFunction.apply(AbstractPartialFunction.scala:35)
+	at play.core.server.Server$.getHandlerFor(Server.scala:129)
+	at play.core.server.AkkaHttpServer.handleRequest(AkkaHttpServer.scala:317)
+	at play.core.server.AkkaHttpServer.$anonfun$createServerBinding$1(AkkaHttpServer.scala:224)
+	at akka.stream.impl.fusing.MapAsync$$anon$30.onPush(Ops.scala:1284)
+	at akka.stream.impl.fusing.GraphInterpreter.processPush(GraphInterpreter.scala:541)
+	at akka.stream.impl.fusing.GraphInterpreter.execute(GraphInterpreter.scala:423)
+	at akka.stream.impl.fusing.GraphInterpreterShell.runBatch(ActorGraphInterpreter.scala:625)
+	at akka.stream.impl.fusing.GraphInterpreterShell$AsyncInput.execute(ActorGraphInterpreter.scala:502)
+	at akka.stream.impl.fusing.GraphInterpreterShell.processEvent(ActorGraphInterpreter.scala:600)
+	at akka.stream.impl.fusing.ActorGraphInterpreter.akka$stream$impl$fusing$ActorGraphInterpreter$$processEvent(ActorGraphInterpreter.scala:769)
+	at akka.stream.impl.fusing.ActorGraphInterpreter$$anonfun$receive$1.applyOrElse(ActorGraphInterpreter.scala:784)
+	at akka.actor.Actor.aroundReceive(Actor.scala:537)
+	at akka.actor.Actor.aroundReceive$(Actor.scala:535)
+	at akka.stream.impl.fusing.ActorGraphInterpreter.aroundReceive(ActorGraphInterpreter.scala:691)
+	at akka.actor.ActorCell.receiveMessage(ActorCell.scala:577)
+	at akka.actor.ActorCell.invoke(ActorCell.scala:547)
+	at akka.dispatch.Mailbox.processMailbox(Mailbox.scala:270)
+	at akka.dispatch.Mailbox.run(Mailbox.scala:231)
+	at akka.dispatch.Mailbox.exec(Mailbox.scala:243)
+	at java.base/java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:290)
+	at java.base/java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1020)
+	at java.base/java.util.concurrent.ForkJoinPool.scan(ForkJoinPool.java:1656)
+	at java.base/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1594)
+	at java.base/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:183)
+Caused by: org.flywaydb.core.internal.command.DbMigrate$FlywayMigrateException: 
+Migration V2__InsertDefaultProfiles.sql failed
+----------------------------------------------
+SQL State  : 42P01
+Error Code : 0
+Message    : ERREUR: la relation « profiles » n'existe pas
+  Position : 13
+Location   : db/migration/default/V2__InsertDefaultProfiles.sql (/home/user/Bureau/myscalapr/scala-play-skills-tracker/target/scala-2.13/classes/db/migration/default/V2__InsertDefaultProfiles.sql)
+Line       : 2
+Statement  : INSERT INTO profiles
+    (profile_id, name, email)
+SELECT uuid_generate_v4(), 'Jon', 'jon@doe.com'
+WHERE
+    NOT EXISTS (
+        SELECT name FROM profiles WHERE name = 'Jon'
+    )
+
+	at org.flywaydb.core.internal.command.DbMigrate.doMigrateGroup(DbMigrate.java:369)
+	at org.flywaydb.core.internal.command.DbMigrate.access$200(DbMigrate.java:54)
+	at org.flywaydb.core.internal.command.DbMigrate$3.call(DbMigrate.java:282)
+	at org.flywaydb.core.internal.jdbc.TransactionTemplate.execute(TransactionTemplate.java:74)
+	at org.flywaydb.core.internal.command.DbMigrate.applyMigrations(DbMigrate.java:279)
+	at org.flywaydb.core.internal.command.DbMigrate.migrateGroup(DbMigrate.java:244)
+	at org.flywaydb.core.internal.command.DbMigrate.access$100(DbMigrate.java:54)
+	at org.flywaydb.core.internal.command.DbMigrate$2.call(DbMigrate.java:162)
+	at org.flywaydb.core.internal.command.DbMigrate$2.call(DbMigrate.java:159)
+	at org.flywaydb.core.internal.database.postgresql.PostgreSQLAdvisoryLockTemplate.execute(PostgreSQLAdvisoryLockTemplate.java:71)
+	at org.flywaydb.core.internal.database.postgresql.PostgreSQLConnection.lock(PostgreSQLConnection.java:94)
+	at org.flywaydb.core.internal.schemahistory.JdbcTableSchemaHistory.lock(JdbcTableSchemaHistory.java:139)
+	at org.flywaydb.core.internal.command.DbMigrate.migrateAll(DbMigrate.java:159)
+	at org.flywaydb.core.internal.command.DbMigrate.migrate(DbMigrate.java:137)
+	at org.flywaydb.core.Flyway$1.execute(Flyway.java:187)
+	at org.flywaydb.core.Flyway$1.execute(Flyway.java:147)
+	at org.flywaydb.core.Flyway.execute(Flyway.java:511)
+	at org.flywaydb.core.Flyway.migrate(Flyway.java:147)
+	at org.flywaydb.play.Flyways.$anonfun$migrate$1(Flyways.scala:102)
+	at org.flywaydb.play.Flyways.$anonfun$migrate$1$adapted(Flyways.scala:102)
+	at scala.Option.foreach(Option.scala:437)
+	at org.flywaydb.play.Flyways.migrate(Flyways.scala:102)
+	at org.flywaydb.play.FlywayWebCommand.$anonfun$handleWebCommand$8(FlywayWebCommand.scala:71)
+	at org.flywaydb.play.FlywayWebCommand.$anonfun$handleWebCommand$8$adapted(FlywayWebCommand.scala:69)
+	at scala.collection.immutable.List.foreach(List.scala:333)
+	at org.flywaydb.play.FlywayWebCommand.handleWebCommand(FlywayWebCommand.scala:69)
+	at play.core.DefaultWebCommands.$anonfun$handleWebCommand$1(WebCommands.scala:42)
+	at scala.collection.immutable.Stream.flatMap(Stream.scala:202)
+	at play.core.DefaultWebCommands.handleWebCommand(WebCommands.scala:42)
+	at play.api.http.DefaultHttpRequestHandler.$anonfun$handlerForRequest$4(HttpRequestHandler.scala:223)
+	at scala.Option.flatMap(Option.scala:283)
+	at play.api.http.DefaultHttpRequestHandler.handlerForRequest(HttpRequestHandler.scala:222)
+	at play.core.server.Server$.getHandlerFor(Server.scala:126)
+	... 23 common frames omitted
+Caused by: org.flywaydb.core.internal.sqlscript.FlywaySqlScriptException: 
+Migration V2__InsertDefaultProfiles.sql failed
+----------------------------------------------
+SQL State  : 42P01
+Error Code : 0
+Message    : ERREUR: la relation « profiles » n'existe pas
+  Position : 13
+Location   : db/migration/default/V2__InsertDefaultProfiles.sql (/home/user/Bureau/myscalapr/scala-play-skills-tracker/target/scala-2.13/classes/db/migration/default/V2__InsertDefaultProfiles.sql)
+Line       : 2
+Statement  : INSERT INTO profiles
+    (profile_id, name, email)
+SELECT uuid_generate_v4(), 'Jon', 'jon@doe.com'
+WHERE
+    NOT EXISTS (
+        SELECT name FROM profiles WHERE name = 'Jon'
+    )
+
+	at org.flywaydb.core.internal.sqlscript.DefaultSqlScriptExecutor.handleException(DefaultSqlScriptExecutor.java:274)
+	at org.flywaydb.core.internal.sqlscript.DefaultSqlScriptExecutor.executeStatement(DefaultSqlScriptExecutor.java:220)
+	at org.flywaydb.core.internal.sqlscript.DefaultSqlScriptExecutor.execute(DefaultSqlScriptExecutor.java:127)
+	at org.flywaydb.core.internal.resolver.sql.SqlMigrationExecutor.execute(SqlMigrationExecutor.java:70)
+	at org.flywaydb.core.internal.command.DbMigrate.doMigrateGroup(DbMigrate.java:366)
+	... 55 common frames omitted
+Caused by: org.postgresql.util.PSQLException: ERREUR: la relation « profiles » n'existe pas
+  Position : 13
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2553)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2285)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:323)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:473)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:393)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:322)
+	at org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:308)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:284)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:279)
+	at org.flywaydb.core.internal.jdbc.JdbcTemplate.executeStatement(JdbcTemplate.java:244)
+	at org.flywaydb.core.internal.sqlscript.ParsedSqlStatement.execute(ParsedSqlStatement.java:111)
+	at org.flywaydb.core.internal.sqlscript.DefaultSqlScriptExecutor.executeStatement(DefaultSqlScriptExecutor.java:208)
+	... 58 common frames omitted
+2022-05-14 15:18:36 [31mWARN [0;39m [36mcom.zaxxer.hikari.pool.HikariPool[0;39m [35m[0;39m HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=14m45s435ms827µs15ns).
+2022-05-14 15:18:36 [34mINFO [0;39m [36mplay.core.server.AkkaHttpServer[0;39m [35m[0;39m Stopping Akka HTTP server...
+2022-05-14 15:18:36 [34mINFO [0;39m [36mplay.core.server.AkkaHttpServer[0;39m [35m[0;39m Terminating server binding for /0:0:0:0:0:0:0:0:9000
+2022-05-14 15:18:37 [34mINFO [0;39m [36mplay.api.db.HikariCPConnectionPool[0;39m [35m[0;39m Shutting down connection pool.
+2022-05-14 15:18:37 [34mINFO [0;39m [36mplay.api.db.DefaultDBApi[0;39m [35m[0;39m Database [default] initialized
+2022-05-14 15:18:37 [34mINFO [0;39m [36mplay.api.db.HikariCPConnectionPool[0;39m [35m[0;39m Creating Pool for datasource 'default'
+2022-05-14 15:18:37 [34mINFO [0;39m [36mplay.api.http.EnabledFilters[0;39m [35m[0;39m Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
+
+    play.filters.headers.SecurityHeadersFilter
+    play.filters.hosts.AllowedHostsFilter
+    play.filters.hosts.AllowedHostsFilter
+
+2022-05-14 15:18:38 [34mINFO [0;39m [36mplay.api.Play[0;39m [35m[0;39m Application started (Dev) (no global state)
+2022-05-14 15:18:38 [34mINFO [0;39m [36mplay.api.db.HikariCPConnectionPool[0;39m [35m[0;39m Shutting down connection pool.
+2022-05-14 15:18:38 [34mINFO [0;39m [36mplay.core.server.AkkaHttpServer[0;39m [35m[0;39m Running provided shutdown stop hooks
